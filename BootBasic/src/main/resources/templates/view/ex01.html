@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> <!-- 타임리프 명시적 선언 -->
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h3>타임리프 출력과 변수</h3>
+	
+	<!-- 타임리프 문법을 사용하려면 속성앞에 th 를 붙인다.(명심 또 명심~) -->
+	<h3 th:text="${'헬로월드'}"></h3>
+	<h3>[[${'헬로월드'}]]</h3>
+	<!-- 위의 두개는 완벽하게 동일한 결과물이다. -->
+	
+	<h3 th:text="${1==1}"></h3>
+	<h3>[[${1==1}]]</h3>
+	
+	<h3 th:text="${true and false}"></h3>
+	<h3>[[${true and false}]]</h3>
+	
+	<h3>[[${'가' eq '가나다'}]]</h3>
+	
+	<hr/>
+	
+	<!-- 변수선언 -->
+	<div th:with = "a = 10">
+		[[${a}]]
+	</div>
+	
+	<div th:with="a = '왕왕왕'" th:text="${a}"></div>
+	
+	<!-- value속성의 사용 -->
+	<div th:with="a='이순신'">
+		<!-- 어떤 속성이건 간에 thymeleaf문법을 사용하고 싶다면 th를 붙여라..
+			th:value 로 사용가능 -->
+		<input type="text" th:value="${a}">
+	</div>
+	
+	<hr/>
+	
+	<!-- if문 -->
+	<div th:with="a = 10">
+		<span th:if="${a == 10}">[[${a+'입니다'}]]</span>
+		<span th:if="${a == 20}">[[${a+'입니다'}]]</span>
+	</div>
+	
+	<!-- if else문 -->
+	<div th:with="a = 10">
+		<span th:if="${a != 10}">10이 아닙니다</span>
+		<!-- unless는 if문과 조건을 똑같이 써주면된다 -->
+		<span th:unless="${a != 10}">10 입니다</span>
+	</div>
+	
+	<!-- 삼항연산자 -->
+	<div th:with="a=10">
+		[[${a == 10 ? '참' : '거짓'}]]<br/>
+		[[${a} == 10 ? '참' : '거짓']]
+	</div>
+	
+	
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
