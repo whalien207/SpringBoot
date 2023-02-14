@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> <!-- 타임리프 명시적 선언 -->
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h3>서버측 유효성 검사</h3>
+	
+	<form action="actionForm" method="post">
+		이름: <input type="text" name="name" th:value="${vo != null ? vo.name : ''}">[[${valid_name}]]<br/>
+		<p>[[${valid_name}]]</p>
+		급여: <input type="text" name="salary" th:value="${vo != null ? vo.salary : ''}">[[${valid_salary}]]<br/>
+		<p>[[${valid_salary}]]</p>
+		전화번호: <input type="text" name="phone" th:value="${vo != null ? vo.phone : ''}">[[${valid_phone}]]<br/>
+		<p>[[${valid_phone}]]</p>
+		이메일: <input type="text" name="email" th:value="${vo != null ? vo.email : ''}">[[${valid_email}]]<br/>
+		<p>[[${valid_email}]]</p>
+		
+		<input type="submit" value="확인">
+	</form>
+	
+
+</body>
+</html>
